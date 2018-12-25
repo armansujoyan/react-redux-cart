@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getCart } from '../redux/selectors';
 import { addToCart, removeItem, removeAll } from '../redux/actions'
 
+const sortCart = cart => cart.sort((a,b) => b.quantity-a.quantity);
+
 function Cart(props) {
   const { cart, addToCart, removeItem, removeAll } = props;
   return (
@@ -18,7 +20,7 @@ function Cart(props) {
       </thead>
       <tbody>
         {
-          cart.map((cartItem, index) =>
+          sortCart(cart).map((cartItem, index) =>
             <tr key={index}>
               <td>{cartItem.name}</td>
               <td>{cartItem.quantity}</td>
