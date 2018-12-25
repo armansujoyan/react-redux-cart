@@ -8,7 +8,12 @@ import { addToCart, removeItem } from '../redux/actions';
 import ProductItem from './product-item';
 
 function ProductsList(props) {
-  const { products, addToCart, cart } = props;
+  const {
+    products,
+    addToCart,
+    removeFromCart,
+    cart
+  } = props;
   return (
     <div className="product-list">
         {
@@ -16,6 +21,7 @@ function ProductsList(props) {
               <ProductItem
                 product={product}
                 addToCart={addToCart}
+                removeFromCart={removeFromCart}
                 key={index}
                 cartItem={cart.filter(item => item.id === product.id)[0]}/>)
         }
