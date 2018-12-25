@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+
 
 export default function ProductItem(props) {
   const { product } = props;
@@ -13,3 +15,7 @@ export default function ProductItem(props) {
     </div>
   )
 }
+
+ProductItem.propTypes = {
+  product: PropTypes.object.isRequired
+};

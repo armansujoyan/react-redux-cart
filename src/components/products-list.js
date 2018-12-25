@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import ProductItem from './prodcut-item'
+
+import ProductItem from './product-item'
 
 export default function ProductsList(props) {
   return (
@@ -10,4 +12,8 @@ export default function ProductsList(props) {
         }
     </div>
   )
+}
+
+ProductsList.propTypes = {
+  products: PropTypes.object.isRequired
 }
