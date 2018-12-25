@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 import { getCart } from '../redux/selectors';
 import { addToCart, removeItem } from '../redux/actions';
-import { getCartItemsCount } from '../utils';
 import ProductItem from './product-item';
 
 function ProductsList(props) {
@@ -18,7 +17,7 @@ function ProductsList(props) {
                 product={product}
                 addToCart={addToCart}
                 key={index}
-                cart={getCartItemsCount(cart)}/>)
+                cartItem={cart.filter(item => item.id === product.id)[0]}/>)
         }
     </div>
   )

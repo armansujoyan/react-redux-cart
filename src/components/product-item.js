@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 
 export default function ProductItem(props) {
-  const { product, addToCart, cart  } = props;
-  const inCart = cart.filter(cartItem => cartItem.id === product.id)[0];
+  const { product, addToCart, cartItem  } = props;
   return (
     <div className="product-list-item">
       <h3> {product.name} </h3>
@@ -13,7 +12,7 @@ export default function ProductItem(props) {
       <div>
         <button onClick={() => addToCart(product)}>
           Add to Cart (
-            {(inCart && inCart.quantity) || 0}
+            {( cartItem && cartItem.quantity) || 0}
           )
         </button>
       </div>
@@ -23,5 +22,6 @@ export default function ProductItem(props) {
 
 ProductItem.propTypes = {
   product: PropTypes.object.isRequired,
-  addToCart: PropTypes.func.isRequired
+  addToCart: PropTypes.func.isRequired,
+  cartItem: PropTypes.object.isRequired
 };
