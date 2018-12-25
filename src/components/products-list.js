@@ -8,11 +8,15 @@ import { addToCart, removeItem } from '../redux/actions'
 import ProductItem from './product-item'
 
 function ProductsList(props) {
-  const { products, addToCart } = props;
+  const { products, addToCart, cart } = props;
   return (
     <div className="product-list">
         {
-            products.map(product => <ProductItem product={product} addToCart={addToCart}/>)
+            products.map(product =>
+              <ProductItem
+                product={product}
+                addToCart={addToCart}
+                cart={cart}/>)
         }
     </div>
   )
