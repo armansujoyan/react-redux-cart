@@ -18,3 +18,10 @@ export const addToCart = (cart, item) => {
     [...withoutItem, { ...item, quantity: 1}] :
     [...withoutItem, { ...item, quantity: itemInCart.quantity + 1}]
 }
+
+export const removeItem = (cart, item) => {
+  const withoutItem = cartWithoutItem(cart, item);
+  return item.quantity > 1 ?
+    [...withoutItem, { ...item, quantity: item.quantity-1 }] :
+    [...withoutItem]
+}

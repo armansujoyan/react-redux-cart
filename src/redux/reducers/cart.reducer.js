@@ -1,5 +1,5 @@
 import { cartConstants } from '../constants';
-import { addToCart } from '../../utils'
+import { addToCart, removeItem } from '../../utils'
 
 export const cartReducer = (state=[], action) => {
   const { type, payload } = action;
@@ -7,7 +7,7 @@ export const cartReducer = (state=[], action) => {
     case cartConstants.ADD_TO_CART:
       return addToCart(state, payload);
     case cartConstants.REMOVE_FROM_CART:
-      return state.filter(item => item.id !== payload.id);
+      return removeItem(state, payload);
     default:
       return state;
   }
