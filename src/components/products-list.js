@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-import { getCart } from '../redux/selectors'
-import { addToCart, removeItem } from '../redux/actions'
-import ProductItem from './product-item'
+import { getCart } from '../redux/selectors';
+import { addToCart, removeItem } from '../redux/actions';
+import { getCartItemsCount } from '../utils';
+import ProductItem from './product-item';
 
 function ProductsList(props) {
   const { products, addToCart, cart } = props;
   return (
     <div className="product-list">
         {
-            products.map(product =>
+            products.map((product, index) =>
               <ProductItem
                 product={product}
                 addToCart={addToCart}
-                cart={cart}/>)
+                key={index}
+                cart={getCartItemsCount(cart)}/>)
         }
     </div>
   )
@@ -34,5 +36,5 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)
 
 ProductsList.propTypes = {
-  products: PropTypes.object.isRequired
+  products: PropTypes.array.isRequired
 }
