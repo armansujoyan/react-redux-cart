@@ -3,19 +3,22 @@ import PropTypes from 'prop-types';
 
 
 export default function ProductItem(props) {
-  const { product } = props;
+  const { product, addToCart } = props;
   return (
     <div className="product-list-item">
       <h3> {product.name} </h3>
       <p> {product.description} </p>
       <div> Price: ${product.price} </div>
       <div>
-        <button>Add to Cart</button>
+        <button onClick={() => addToCart(product)}>
+          Add to Cart
+        </button>
       </div>
     </div>
   )
 }
 
 ProductItem.propTypes = {
-  product: PropTypes.object.isRequired
+  product: PropTypes.object.isRequired,
+  addToCart: PropTypes.func.isRequired
 };
