@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getCart } from '../redux/selectors';
 import { addToCart, removeItem, removeAll } from '../redux/actions'
 
-const sortCart = cart => cart.sort((a,b) => b.quantity-a.quantity);
+const sortCart = cart => cart.sort((a,b) => a.id < b.id);
 
 function Cart(props) {
   const { cart, addToCart, removeItem, removeAll } = props;
