@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default function ProductItem(props) {
   const { product } = props;
   return (
-    <div>
+    <div className="product-list-item">
       <h3> {product.name} </h3>
       <p> {product.description} </p>
       <div> Price: ${product.price} </div>
