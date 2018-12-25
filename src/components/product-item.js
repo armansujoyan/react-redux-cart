@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export default function ProductItem(props) {
   const { product, addToCart, cart  } = props;
-  const inCart = (item) => cart.filter(cartItem => cartItem.id === item.id)[0];
+  const inCart = cart.filter(cartItem => cartItem.id === product.id)[0];
   return (
     <div className="product-list-item">
       <h3> {product.name} </h3>
