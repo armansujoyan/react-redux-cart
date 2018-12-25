@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { getCart } from '../redux/selectors';
 import { addToCart, removeItem, removeAll } from '../redux/actions'
-import { bindActionCreators } from 'react';
 
 function Cart(props) {
   const { cart, addToCart, removeItem, removeAll } = props;
@@ -19,7 +19,7 @@ function Cart(props) {
       <tbody>
         {
           cart.map((cartItem, index) =>
-            <tr>
+            <tr key={index}>
               <td>{cartItem.name}</td>
               <td>{cartItem.quantity}</td>
               <td>
@@ -47,10 +47,10 @@ const mapStateToProps = state => ({
   cart: getCart(state)
 })
 
-const mapDispatchToProps = dispatch => ({
-  addToCart: bindActionCreators(addToCart, dispatch),
-  removeItem: bindActionCreators(removeItem, dispatch),
-  removeAll: bindActionCreators(removeAll, dispatch)
-})
+const mapDispatchToProps = {
+  addToCart,
+  removeItem,
+  removeAll
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

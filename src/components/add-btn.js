@@ -16,5 +16,5 @@ export default function AddBtn(props) {
 AddBtn.propTypes = {
   addToCart: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
-  cartItem: PropTypes.object.isRequired
+  cartItem: PropTypes.object
 }

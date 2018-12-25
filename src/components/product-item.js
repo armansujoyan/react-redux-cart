@@ -32,6 +32,6 @@ export default function ProductItem(props) {
 ProductItem.propTypes = {
   product: PropTypes.object.isRequired,
   addToCart: PropTypes.func.isRequired,
-  cartItem: PropTypes.object.isRequired,
+  cartItem: PropTypes.object,
   removeFromCart: PropTypes.func.isRequired
 };

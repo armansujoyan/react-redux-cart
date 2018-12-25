@@ -12,6 +12,6 @@ export default function RemoveBtn(props) {
 }
 
 RemoveBtn.propTypes = {
-  addToCart: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
   cartItem: PropTypes.object.isRequired
 }
